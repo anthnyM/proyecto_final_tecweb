@@ -11,7 +11,7 @@ export class BrowseService {
   constructor(private http: HttpClient) { }
 
   getAllPokemon(): Observable<Pokemon[]>{
-    return this.http.get<Pokemon[]>(this.url)
+    return this.http.get<Pokemon[]>(this.url);
   }
 
   getPokemonFiltered(filters: {type?: string, generation?: number; legendary?: boolean, name?: string}): Observable<Pokemon[]>{
