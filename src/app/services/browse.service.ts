@@ -38,4 +38,8 @@ export class BrowseService {
   deletePokemonById(id: string): Observable<Pokemon>{
     return this.http.delete<Pokemon>(this.url +"/"+ id);
   }
+
+  patchPokemonById(id: string, updates: Partial<any>): Observable<any> {
+    return this.http.patch<Pokemon>(this.url +"/"+ id, updates);
+  }
 }

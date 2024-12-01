@@ -4,16 +4,18 @@ import { BrowseService } from '../../services/browse.service';
 import { Pokemon } from '../../models/pokemon';
 import { Location } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
 export class DetailsComponent implements OnInit{
   pokemon!: Pokemon;
+  isEditing: Boolean = false;
   preEvolution: any = null;
   nextEvolution: any[] = [];
 
@@ -72,6 +74,34 @@ export class DetailsComponent implements OnInit{
     }
   }
 
+  enableEdit(): void {
+    this.isEditing = true;
+  }
+
+  cancelEdit(): void {
+    this.isEditing = false;
+  }
+
+  saveChanges(): void {
+    const updates = {
+      name: this.pokemon.name,
+      type: this.pokemon.type,
+      base: this.pokemon.base,
+      legendary: this.pokemon.legendary,
+    };
+    console.log(updates);
+    this.browseService.patchPokemonById(this.pokemon._id, updates).subscribe(
+      (updatedPokemon) => {
+        this.pokemon = updatedPokemon; 
+        this.isEditing = false;
+        alert('Pokemon updated successfully!');
+      },
+      (error) => {
+        console.error('Error updating Pokémon:', error);
+        alert('Failed to update Pokémon.');
+      }
+    );
+  }
 
   goBack(): void{
     this.location.back();
