@@ -63,6 +63,16 @@ export class DetailsComponent implements OnInit{
     this.router.navigate(['/details/', id]);
   }
 
+  deletePokemon(): void {
+    if (confirm(`Are you sure you want to delete ${this.pokemon.name}?`)) {
+      this.browseService.deletePokemonById(this.pokemon._id).subscribe(() => {
+        alert(`${this.pokemon.name} has been deleted.`);
+        this.router.navigate(['/browse']);
+      });
+    }
+  }
+
+
   goBack(): void{
     this.location.back();
   }

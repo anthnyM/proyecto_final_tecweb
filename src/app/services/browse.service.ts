@@ -34,4 +34,8 @@ export class BrowseService {
   getPokemonById(id: string): Observable<Pokemon>{
     return this.http.get<Pokemon>(this.url + "/id/" + id);
   }
+
+  deletePokemonById(id: string): Observable<Pokemon>{
+    return this.http.delete<Pokemon>(this.url +"/"+ id);
+  }
 }
