@@ -48,7 +48,8 @@
       <div class="pokemon-grid">
         <app-pokemon
           *ngFor="let pokemon of pokemonList"
-          [data]="pokemon">
+          [data]="pokemon"
+          (selectedPokemon)="navigateToDetails($event)">
         </app-pokemon>
       </div>
     </div>

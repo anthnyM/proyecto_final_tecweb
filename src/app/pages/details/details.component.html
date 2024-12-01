@@ -1,0 +1,37 @@
+
+    <div class="details-container">
+        <button class="back-button" (click)="goBack()">Back</button>
+        <br>
+        <img [src]="pokemon.image" alt="{{ pokemon.name }}" />
+        <h1>{{ pokemon.name }}</h1>
+
+        <p><strong>Type:</strong> {{ pokemon.type.join(', ') }}</p>
+        <p><strong>HP:</strong> {{ pokemon.base.HP }}</p>
+        <p><strong>Attack:</strong> {{ pokemon.base.Attack }}</p>
+        <p><strong>Defense:</strong> {{ pokemon.base.Defense }}</p>
+        <p><strong>Speed:</strong> {{ pokemon.base.Speed }}</p>
+        <p><strong>Generation:</strong> {{ pokemon.generation }}</p>
+        <p><strong>Legendary:</strong> {{ pokemon.legendary ? 'Yes' : 'No' }}</p>
+
+        <!-- Previous Evolution -->
+        <div *ngIf="preEvolution" class="evolution">
+            <h3>Previous Evolution:</h3>
+            <div (click)="navigateToEvolution(preEvolution._id)" class="evolution-card">
+            <img [src]="preEvolution.image" [alt]="preEvolution.name" />
+            <p>{{ preEvolution.name }}</p>
+            </div>
+        </div>
+    
+        <!-- Next Evolutions -->
+        <div *ngIf="nextEvolution.length > 0" class="evolution">
+            <h3>Next Evolutions:</h3>
+            <div
+            *ngFor="let next of nextEvolution"
+            (click)="navigateToEvolution(next._id)"
+            class="evolution-card"
+            >
+            <img [src]="next.image" [alt]="next.name" />
+            <p>{{ next.name }}</p>
+            </div>
+        </div>
+    </div>

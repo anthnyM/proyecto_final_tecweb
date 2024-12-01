@@ -4,6 +4,7 @@ import { Pokemon } from '../../models/pokemon';
 import { PokemonComponent } from '../../elements/pokemon/pokemon.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-browse',
@@ -23,7 +24,7 @@ export class BrowseComponent implements OnInit{
     name: ''
   };
 
-  constructor(private browseService: BrowseService) {}
+  constructor(private browseService: BrowseService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchPokemon();
@@ -53,4 +54,7 @@ export class BrowseComponent implements OnInit{
     );
   }
 
+  navigateToDetails(pokemonId: string): void{
+    this.router.navigate(['/details/',pokemonId]);
+  }
 }

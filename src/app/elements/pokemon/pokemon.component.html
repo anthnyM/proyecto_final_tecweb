@@ -1,5 +1,4 @@
-<div class="pokemon-card">
-    <img [src]="data?.image" [alt]="data?.name" />
-    <h3>{{ data?.name }}</h3>
-    <p>Type: {{ data?.type }}</p>
-</div>
+<div class="pokemon-card" (click)="onSelect()">
+    <img [src]="data.image" alt="{{ data.name }}" />
+    <h3>{{ data.name }}</h3>
+  </div>

@@ -30,4 +30,8 @@ export class BrowseService {
     }
     return this.http.get<Pokemon[]>(this.url + '/filter/', {params});
   }
+
+  getPokemonById(id: string): Observable<Pokemon>{
+    return this.http.get<Pokemon>(this.url + "/id/" + id);
+  }
 }
