@@ -1,53 +1,51 @@
-<div class="page-container">
-    <div class="add-form">
-        <h2>Add a New Pokémon</h2>  
-        <form (ngSubmit)="addPokemon()">
-          <label for="name">Name:</label>
-          <input id="name" type="text" [(ngModel)]="pokemon.name" name="name" required />
-        
-          <label for="type">Type:</label>
-          <div *ngFor="let type of types">
-            <label>
-              <input type="checkbox" [value]="type" (change)="toggleType(type)" /> {{ type }}
-            </label>
-          </div>
-      
-          <label for="hp">HP:</label>
-          <input id="hp" type="number" [(ngModel)]="pokemon.base.HP" name="hp" />
-      
-          <label for="attack">Attack:</label>
-          <input id="attack" type="number" [(ngModel)]="pokemon.base.Attack" name="attack" />
-      
-          <label for="defense">Defense:</label>
-          <input id="defense" type="number" [(ngModel)]="pokemon.base.Defense" name="defense" />
-      
-          <label for="speed">Speed:</label>
-          <input id="speed" type="number" [(ngModel)]="pokemon.base.Speed" name="speed" />
-      
-          <label for="generation">Generation:</label>
-          <select [(ngModel)]="pokemon.generation" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            </select>
-      
-          <label>
-            Legendary:
-            <input type="checkbox" [(ngModel)]="pokemon.legendary" name="legendary" />
-          </label>
-      
-          <label for="image">Image URL:</label>
-          <input id="image" type="text" [(ngModel)]="pokemon.image" name="image" />
-      
-          <button type="submit">Add Pokémon</button>
-        </form>
-        <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
-        <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div class="add-form">
+    <h2>Add a New Pokémon</h2>  
+    <form (ngSubmit)="addPokemon()">
+      <label for="name">Name:</label>
+      <input id="name" type="text" [(ngModel)]="pokemon.name" name="name" required />
+    
+      <label for="type">Type:</label>
+      <div *ngFor="let type of types">
+        <label>
+          <input type="checkbox" [value]="type" (change)="toggleType(type)" /> {{ type }}
+        </label>
       </div>
+  
+      <label for="hp">HP:</label>
+      <input id="hp" type="number" [(ngModel)]="pokemon.base.HP" name="hp" />
+  
+      <label for="attack">Attack:</label>
+      <input id="attack" type="number" [(ngModel)]="pokemon.base.Attack" name="attack" />
+  
+      <label for="defense">Defense:</label>
+      <input id="defense" type="number" [(ngModel)]="pokemon.base.Defense" name="defense" />
+  
+      <label for="speed">Speed:</label>
+      <input id="speed" type="number" [(ngModel)]="pokemon.base.Speed" name="speed" />
+  
+      <label for="generation">Generation:</label>
+      <select [(ngModel)]="pokemon.generation" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        </select>
+  
+      <label>
+        Legendary:
+        <input type="checkbox" [(ngModel)]="pokemon.legendary" name="legendary" />
+      </label>
+  
+      <label for="image">Image URL:</label>
+      <input id="image" type="text" [(ngModel)]="pokemon.image" name="image" />
+  
+      <button type="submit">Add Pokémon</button>
+    </form>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 </div>
