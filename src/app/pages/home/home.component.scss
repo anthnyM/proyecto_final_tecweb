@@ -48,6 +48,10 @@ p {
     transition: background-color 0.3s ease;
 }
 
+.button:hover{
+    transform: scale(1.05);
+}
+
 .pokemons-section {
     margin-top: 50px;
 }
@@ -122,19 +126,15 @@ p {
 }
 
 footer {
-    margin-top: 3em;
-    padding: 1em;
+    margin-top: 0;
+    padding: 0.5em;
     background-color: #a53f3f;
     text-align: center;
-    width: 100%;
+    width: auto;
     color: white;
     border-radius: 3px;
 }
 
-.footer-nav {
-    margin-bottom: 1em;
-    border-radius: 3px;
-}
 
 .footer-nav a {
     color: #d1b57a;
@@ -153,16 +153,68 @@ footer {
 }
 
 .social-media {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 
 .social-media a {
-    color: rgb(65,105,225);
+    color: rgb(220,220,220);
     font-size: 1.2em;
     margin: 0 0.5em;
     text-decoration: none;
 }
 
 .social-media a:hover {
-    color: #eaeaea;
+    color: rgb(47,79,79);
+}
+
+@media (max-width: 668px) {
+    body {
+        padding: 0 10px;
+    }
+
+    .page-container {
+        height: auto;
+        margin-top: 20px;
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .button {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .pokemons-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .pokemon-card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .discover h1 {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .discover p {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
+
+    .social-media a {
+        font-size: 1rem;
+    }
 }

@@ -43,6 +43,10 @@ body {
   .nav li {
     margin-left: 4rem;
   }
+
+  .nav li:hover{
+    transform: scale(1.05);
+  }
   
   .nav a {
     text-decoration: none;
@@ -58,3 +62,45 @@ body {
   .content {
     padding: 2rem;
   }
+
+  @media (max-width: 668px) {
+    .navbar {
+        padding: 0.8rem;
+        border-radius: 0;
+    }
+
+    .navbar .navbar-brand {
+        font-size: 1.25rem;
+        text-align: center;
+        display: block;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .container img {
+        max-width: 40px;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .nav li {
+        margin: 0;
+    }
+
+    .nav a {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+}
