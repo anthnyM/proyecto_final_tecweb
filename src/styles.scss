@@ -23,6 +23,7 @@ html, body{
     border-top-right-radius: 0px;
     flex-shrink: 1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffefee;
   }
   
   app-root {
@@ -33,4 +34,5 @@ html, body{
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
+  
 }
