@@ -1,15 +1,168 @@
-.page-container{
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 0 15px;
+}
+
+.page-container {
     height: 65vh;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 3rem;
+    color: rgb(65,105,225);
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #5a5a5a;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: rgb(65,105,225);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.pokemons-section {
+    margin-top: 50px;
+}
+
+.pokemons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     justify-items: center;
 }
 
-h1{
-    font-size: 4rem;
-    margin: 25px;
+.pokemon-card {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-p{
+.pokemon-card:hover {
+    transform: scale(1.05);
+}
+
+.pokemon-card img {
+    width: 120px;
+    height: 120px;
+}
+
+.pokemons-section h3{
+    color:rgb(65,105,225);
+}
+
+h3 {
     font-size: 1.5rem;
+    margin-top: 10px;
+    color: #3d6e00;
 }
 
+p {
+    font-size: 1rem;
+    color: #555;
+}
+
+#featured{
+    background-color: #a53f3f;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.discover{
+    padding: 1rem;
+}
+
+.discover h1{
+    color: white;
+    background-color: #a53f3f;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.discover p{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+footer {
+    margin-top: 3em;
+    padding: 1em;
+    background-color: #a53f3f;
+    text-align: center;
+    width: 100%;
+    color: white;
+    border-radius: 3px;
+}
+
+.footer-nav {
+    margin-bottom: 1em;
+    border-radius: 3px;
+}
+
+.footer-nav a {
+    color: #d1b57a;
+    text-decoration: none;
+    margin: 0 1em;
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+.footer-nav a:hover {
+    color: #eaeaea;
+}
+
+.footer-copy p{
+    color: white;
+}
+
+.social-media {
+    margin-bottom: 1em;
+}
+
+.social-media a {
+    color: rgb(65,105,225);
+    font-size: 1.2em;
+    margin: 0 0.5em;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #eaeaea;
+}
