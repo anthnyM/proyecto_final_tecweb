@@ -15,4 +15,5 @@ export interface Pokemon {
     generation: number;
     legendary: boolean;
     image: string; // URL for the Pokémon's image.
+    img?: string;
 }

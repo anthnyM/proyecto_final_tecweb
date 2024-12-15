@@ -42,6 +42,7 @@ export class AddComponent {
   addPokemon(): void {
     this.setPreEvolution()
       .then(() => this.setNextEvolution())
+      .then(() => this.setImageData()) 
       .then(() => this.savePokemon())
       .catch((error) => {
         this.errorMessage = error;
@@ -55,12 +56,12 @@ export class AddComponent {
         this.addService.GetPokemonByName(this.preEvo).subscribe(
           (data) => {
             this.pokemon.evolution.prev = data._id;
-            resolve(); // Proceed to the next step
+            resolve();
           },
           () => reject('Failed to fetch pre-evolution. Please try again.')
         );
       } else {
-        resolve(); // No pre-evolution, proceed to the next step
+        resolve();
       }
     });
   }
@@ -71,12 +72,27 @@ export class AddComponent {
         this.addService.GetPokemonByName(this.Evo).subscribe(
           (data) => {
             this.pokemon.evolution.next.push(data._id);
-            resolve(); // Proceed to the next step
+            resolve();
           },
           () => reject('Failed to fetch next evolution. Please try again.')
         );
       } else {
-        resolve(); // No next evolution, proceed to saving
+        resolve();
+      }
+    });
+  }
+  
+  private setImageData(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (this.pokemon.image) {
+        this.convertImageToBase64(this.pokemon.image)
+          .then((base64Data) => {
+            this.pokemon.img = base64Data;
+            resolve();
+          })
+          .catch(() => reject('Failed to fetch and process image. Please try again.'));
+      } else {
+        resolve(); 
       }
     });
   }
@@ -85,6 +101,7 @@ export class AddComponent {
     this.addService.AddPokemon(this.pokemon).subscribe(
       () => {
         this.successMessage = `${this.pokemon.name} has been added successfully!`;
+        console.log(this.pokemon);
         this.errorMessage = null;
         this.resetForm();
       },
@@ -94,8 +111,7 @@ export class AddComponent {
       }
     );
   }
-
-
+  
   resetForm(): void {
     this.pokemon = {
       name: '',
@@ -112,9 +128,29 @@ export class AddComponent {
       },
       generation: 1,
       legendary: false,
-      image: ''
+      image: '',
+      img: '' 
     };
   }
+  
+  private convertImageToBase64(imageUrl: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+          resolve(reader.result as string); 
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(xhr.response);
+      };
+      xhr.onerror = reject;
+      xhr.responseType = 'blob';
+      xhr.open('GET', imageUrl);
+      xhr.send();
+    });
+  }
+  
 
   toggleType(type: string): void {
     const index = this.pokemon.type.indexOf(type);

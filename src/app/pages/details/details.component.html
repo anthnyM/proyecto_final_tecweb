@@ -2,7 +2,7 @@
     <div class="details-container">
         <button class="back-button" (click)="goBack()">Back</button>
         <br>
-        <img [src]="pokemon.image" alt="{{ pokemon.name }}" />
+        <img [src]="pokemon.img" alt="{{ pokemon.name }}" />
         <h1>{{ pokemon.name }}</h1>
 
         <p><strong>Type:</strong> {{ pokemon.type.join(', ') }}</p>
@@ -17,7 +17,7 @@
         <div *ngIf="preEvolution" class="evolution">
             <h3>Previous Evolution:</h3>
             <div (click)="navigateToEvolution(preEvolution._id)" class="evolution-card">
-            <img [src]="preEvolution.image" [alt]="preEvolution.name" />
+            <img [src]="preEvolution.img" [alt]="preEvolution.name" />
             <p>{{ preEvolution.name }}</p>
             </div>
         </div>
@@ -30,7 +30,7 @@
             (click)="navigateToEvolution(next._id)"
             class="evolution-card"
             >
-            <img [src]="next.image" [alt]="next.name" />
+            <img [src]="next.img" [alt]="next.name" />
             <p>{{ next.name }}</p>
             </div>
         </div>

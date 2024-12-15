@@ -7,7 +7,7 @@ import { Pokemon } from '../models/pokemon';
   providedIn: 'root'
 })
 export class AddService {
-  private url = 'http://localhost:3000/pokemon/';
+  private url = 'https://poke-api-bogosorters.onrender.com/pokemon/';
   constructor(private http: HttpClient) { }
 
   AddPokemon(pokemon: Pokemon): Observable<Pokemon>{

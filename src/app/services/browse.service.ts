@@ -6,7 +6,7 @@ import { Pokemon } from '../models/pokemon';
   providedIn: 'root'
 })
 export class BrowseService {
-  private url = 'http://localhost:3000/pokemon';
+  private url = 'https://poke-api-bogosorters.onrender.com/pokemon';
 
   constructor(private http: HttpClient) { }
 
