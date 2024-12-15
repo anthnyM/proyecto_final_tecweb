@@ -6,7 +6,6 @@ import { DetailsComponent } from './pages/details/details.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'home', component: HomeComponent},
     {path: 'browse', component: BrowseComponent},
     {path: 'add-pokemon', component: AddComponent},
     {path: 'details/:id', component: DetailsComponent}
